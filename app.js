@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://Avinash:Avi@2302@cluster0.hbln3.mongodb.net/todolistDB",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://Avinash:Avi@2302@cluster0.hbln3.mongodb.net/todolistDB",{useNewUrlParser:true,useUnifiedTopology: true, useFindAndModify: false}));
 
 const itemschema= {
   name: String
@@ -152,7 +152,7 @@ app.get("/about", function(req, res){
 });
 
 let port=process.env.PORT;
-if(port== null || port=""){
+if(port== null || port==""){
   port=3000;
 }
 
